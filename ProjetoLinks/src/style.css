@@ -1,0 +1,59 @@
+body {
+    background: url(/assets/Imagens/bg-desktop.jpg), lightgray 50% / cover no-repeat;
+}
+
+.layout-container{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid gold;
+    
+}
+.profile-container {
+    display: flex;
+    padding: 24px;
+    border: 2px solid red;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    }
+.profile-container img {
+    display: flex;
+    width: 112px;
+    height: 112px;
+    padding-bottom: 1px;
+    justify-content: center;
+    align-items: center;
+}
+.profile-container h1 {
+    color: #FFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+.light-container {
+    
+    border: 2px solid green;
+  
+}
+.light-container img {
+    
+    width: 64px;
+    height: 40px;
+}
+.links-container {
+    border: 2px solid blue;
+}
+.social-container {
+    border: 2px solid purple;
+}
+.social-container img {
+    width: 40px;
+    height: 40px;
+}
