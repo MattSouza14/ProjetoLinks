@@ -1,109 +1,149 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --text-color:white;
+  --bg-url:url(/assets/Imagens/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 255, 255, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(/assets/moon-stars.svg);
+
+}
+.light  {
+  --text-color:black;
+  --bg-url:url(/assets/Imagens/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color:rgba( 0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(/assets/sun.svg);
+
+}
 body {
-  background: url(/ProjetoLinks/assets/Imagens/bg-desktop.jpg),
-    lightgray 50% / cover no-repeat;
+  background: var(--bg-url) no-repeat top center/cover;
 }
-
-.layout-container {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-  height: 550px;
+body * {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+#container {
+ 
+  width: 360px;
+  margin: 56px auto 8px;
   padding: 0 24px;
+  
 }
-.profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+/*Profile*/
+#profile {
+  text-align: center;
+  padding: 24px;
 }
-.profile-container img {
-  display: flex;
+/*Elementos inline, não é possivel aplicar margin:auto*/
+#profile img {
   width: 112px;
-  height: 112px;
-  padding-bottom: 1px;
-  justify-content: center;
-  align-items: center;
 }
-.profile-container h1 {
-  color: #fff;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
+#profile p {
+  font-weight: 500;
   line-height: 24px;
+  margin-top: 8px;
 }
-
-.light-container {
-  border: 2px solid green;
-}
-.light-container img {
+/*Profile*/
+/*Switch*/
+#switch {
+  position: relative;
   width: 64px;
-  height: 40px;
+  margin: 4px auto;
+  
+  
 }
-
-.social-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.social-container img {
-  width: 40px;
-  height: 40px;
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
   border-radius: 50%;
-  transition: background 0.2s;
-  padding: 16px 16px;
-  gap: 10px;
+
+  /*Sobreposição de camadas*/
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  /*Movimenta o elemento no eixo y verticalmente*/
+  transform: translateY(-10%);
+ 
+}
+.light #switch button {
+  /*posição inicial e final quando trocar para o modo light */
+  left: initial;
+  right: 0;
+}
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 2px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
 }
 
-.btn-container ul {
+
+/*Switch*/
+/*Links*/
+ul {
   display: flex;
   flex-direction: column;
   list-style: none;
-  margin-right: 45px;
-  gap: 15px;
+  gap: 16px;
+  padding: 24px 0;
 }
 ul li a {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px 24px;
-  text-decoration: none;
-  background: rgb(255, 255, 255, 0.1);
-  border: 1px solid rgb(255, 255, 255, 0.5);
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   border-radius: 8px;
   backdrop-filter: blur(4px);
-  width: 240px;
-  height: 5px;
+  text-decoration: none;
+  font-weight: 500;
   transition: background 0.2s;
 }
-ul li h1 {
-  color: #fff;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
+/*Links*/
+/*pseudo-selector*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
 }
-footer {
+/*pseudo-selector*/
+
+/*SocialLinks*/
+#sociallinks {
   display: flex;
   justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+}
+#sociallinks a {
+  display: flex;
   align-items: center;
-  padding: 24px 24px;
-  margin-left: 40px;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
 }
-footer h1 {
-  font-size: 15px;
-  color: #fff;
+/*pseudo-selector*/
+#sociallinks a:hover {
+  background: var(--highlight-color);
 }
-
-ul li a:hover {
-  background: rgb(255, 255, 255, 0.05);
-  border: 1.5px solid white;
-}
-
-.social-container img:hover {
-  background: rgb(255, 255, 255, 0.2);
-  
+/*pseudo-selector*/
+/*SocialLinks*/
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
 }
